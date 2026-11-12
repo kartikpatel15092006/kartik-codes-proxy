@@ -1,0 +1,61 @@
+# Kartik Codes Proxy — example configuration
+# Copy this file to server/config.yaml and add YOUR OWN keys.
+# The proxy auto-generates a proxyKey if you leave it empty.
+
+proxyKey: ""            # leave empty → auto-generated on first start (shown in the UI)
+activeModel: glm-5.3-flash-free
+spreadMode: false       # true = rotate usage evenly across all keys; false = strict priority order
+
+# ---- Model catalog ----
+# OpenCode only ever sees ONE model: "kartik-proxy-codes".
+# Each entry maps that unified model to each provider's real model ID.
+models:
+  - id: glm-5.3-flash-free
+    name: GLM 5.3 Flash Free
+    map:
+      opencode: glm-5.3-flash-free
+      openrouter: z-ai/glm-5.3-flash
+      nvidia: z-ai/glm-5.3-flash
+  - id: nemotron-3-ultra-free
+    name: Nemotron 3 Ultra Free
+    map:
+      openrouter: nvidia/nemotron-3-ultra-550b-a55b:free
+      nvidia: nvidia/nemotron-3-ultra-550b-a55b
+  - id: kimi-k2.6
+    name: Kimi K2.6
+    map:
+      opencode: kimi-k2.6
+      openrouter: moonshotai/kimi-k2.6
+      nvidia: moonshotai/kimi-k2.6
+  - id: gemini-3.8-flash-free
+    name: Gemini 3.8 Flash Free
+    map:
+      google: gemini-3.8-flash
+  - id: gemini-3.1-lite-free
+    name: Gemini 3.1 Flash-Lite Free
+    map:
+      google: gemini-3.1-flash-lite
+  - id: gpt-oss-120b-free
+    name: GPT-OSS 120B Free
+    map:
+      groq: openai/gpt-oss-120b
+  - id: qwen-3.8-27b-free
+    name: Qwen 3.8 27B Free
+    map:
+      groq: qwen/qwen3.8-27b
+
+# ---- Provider keys ----
+# type is auto-detected from the key prefix when added via the UI
+# (oc_sk_ → opencode, sk-or- → openrouter, nvapi- → nvidia, gsk_ → groq, AIza/AQ. → google)
+# Replace the placeholder keys below with real ones, or just add them via the UI.
+providers: []
+#  - id: example-1
+#    name: My OpenRouter key
+#    apiKey: sk-or-v1-xxxxxxxxxxxxxxxx
+#    baseUrl: https://openrouter.ai/api
+#    type: openrouter
+#    enabled: true
+#    priority: 0
+#    models:
+#      - glm-5.3-flash-free
+#      - nemotron-3-ultra-free

@@ -1,0 +1,20 @@
+# NEVER commit real keys — this file holds your team's actual API keys
+server/config.yaml
+
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Build output (rebuilt automatically on first start)
+dist/
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*
